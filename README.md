@@ -41,6 +41,7 @@ Git:
 2.1 Documentação Oficial: http://git-scm.com/documentation
 
 Django:
+
 2.1 Class Based Views: http://ccbv.co.uk/projects/Django/1.5/django.views.generic.list/ListView/
 
 2.2 Documentação Oficial: https://docs.djangoproject.com/en/1.6/
