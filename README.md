@@ -72,16 +72,17 @@ $ git clone git@github.com:Bo-de-Bike/bodebike_project.git
     2.3.1 - Criar um novo ambiente virtual
       - mkvirtualenv nome_da_virtualenv
     2.3.2 - Remover a virtualenv
-      - rmvirtualenv
-remove um ambiente virtual existente
-workon
-lista/troca de ambiente virtual
-add2virtualenv
-adiciona um pacote externo ao path do atual ambiente virtual
-cdsitepackages
-vai para a pasta “site-packages” do atual abiente virtual
-cdvirtualenv
-vai para a pasta raiz do seu ambiente virtual
+      - rmvirtualenv nome_da_virtualenv
+    2.3.3 - Ativa o ambiente 
+      - workon nome_da_virtualenv
+    2.3.4 - Desativa o ambiente 
+      - deactivate
+      
+  2.4 - Instalando as detendencias do projeto 
+    2.4.1 - entre na pasta raiz do projeto e rode o comando : make deps
+    
+    
+## PRONTO - PODE CODAR !
 
 
 ## 3 - Links
