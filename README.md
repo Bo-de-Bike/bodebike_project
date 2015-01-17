@@ -34,7 +34,7 @@ $ git clone https://github.com/Bo-de-Bike/bodebike_project.git
 
 $ git clone git@github.com:Bo-de-Bike/bodebike_project.git
 
-## 2 - Configurando co Projeto 
+## 2 - Configurando o Projeto 
 
   2.1 - Primeiro passo, configure a virtualenvwrapper e o pip ( se ja tiver pula para o passo 2.1.2 )
   
@@ -79,6 +79,7 @@ $ git clone git@github.com:Bo-de-Bike/bodebike_project.git
       - deactivate
       
   2.4 - Instalando as detendencias do projeto 
+  
     2.4.1 - entre na pasta raiz do projeto e rode o comando : make deps
     
     
