@@ -28,11 +28,11 @@ criem uma pasta Projeto e dentro dela:
 
 ### HTTPS:
 
-$ git clone https://github.com/Bo-de-Bike/bodebike_project.git
+$ git clone https://github.com/Projeto-BD/vacinou_project.git
 
 ### SSH
 
-$ git clone git@github.com:Bo-de-Bike/bodebike_project.git
+$ git clone git@github.com:Projeto-BD/vacinou_project.git
 
 ## 2 - Configurando o Projeto 
 
@@ -81,12 +81,32 @@ $ git clone git@github.com:Bo-de-Bike/bodebike_project.git
   2.4 - Instalando as detendencias do projeto 
   
     2.4.1 - Entre na pasta raiz do projeto e rode o comando : make deps
+  
+  2.5 - Configurando o Postgre com Django: 
     
-  2.5 Atalhos 
+    2.5.1 - sudo apt-get install libpq-dev python-dev
+    2.5.2 - sudo apt-get install postgresql postgresql-contrib
     
-    2.5.1 - Rodar o projeto : make run
-    2.5.2 - Resetar o banco e criar um superusuário : make restart
-    2.5.3 - Para fazer a migração do banco de dados : make setup
+    2.5.3 - Criando o usuário no psql
+    
+    Abra o terminal e digite:
+    
+    - sudo su postgres
+    - postgres~$ psql
+    - postgres=# CREATE USER vacinou WITH PASSWORD 'vacinou123' LOGIN CREATEDB;
+    - postgres=# CREATE DATABASE vacinou OWNER vacinou;
+    
+    2.5.4 - Gere as Tabelas
+    
+      No terminal (na raiz do projeto), rode o comando:
+        
+       ~$ make setup
+    
+  2.6 - Atalhos 
+  
+    2.6.1 - Rodar o projeto : make run
+    2.6.2 - Reseta o banco e cria um superusuário : make restart
+    2.6.3 - Para fazer a migração do banco de dados : make setup
     
     
 ## PRONTO - PODE CODAR !
