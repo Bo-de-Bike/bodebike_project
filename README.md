@@ -3,24 +3,7 @@
 
 ### 1.1 SSH
 
-Primeiro passo, verifique se existe ssh em seu computador:
-
-ls -al ~/.ssh
-se existe um arquivo chamado "id_rsa.pub", abra o arquivo copie e pule para o ultimo passo.
-
-Segundo passo, gere uma ssh key:
-
-ssh-keygen -t rsa -C "email@example.com"
-aperte ENTER e digite sua senha.
-
-depois:
-
-ssh-add ~/.ssh/id_rsa
-
-Ultimo passo:
-
-gedit ~/.ssh/id_rsa.pub
-após abrir o arquivo, copie o código e vá em: Settings > SSH Keys > Add Key e adicione o código.
+https://help.github.com/articles/generating-ssh-keys/
 
 ### 1.2 - Clone
 
