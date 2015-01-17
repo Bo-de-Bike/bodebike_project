@@ -80,7 +80,13 @@ $ git clone git@github.com:Bo-de-Bike/bodebike_project.git
       
   2.4 - Instalando as detendencias do projeto 
   
-    2.4.1 - entre na pasta raiz do projeto e rode o comando : make deps
+    2.4.1 - Entre na pasta raiz do projeto e rode o comando : make deps
+    
+  2.5 Atalhos 
+    
+    2.5.1 - Rodar o projeto : make run
+    2.5.2 - Resetar o banco e criar um superusuário : make restart
+    2.5.3 - Para fazer a migração do banco de dados : make setup
     
     
 ## PRONTO - PODE CODAR !
