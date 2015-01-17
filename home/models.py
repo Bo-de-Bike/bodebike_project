@@ -1,3 +1,7 @@
 from django.db import models
+from django.views.generic import View
 
-# Create your models here.
+class home(View):
+
+    def get(self, request, *args, **kwargs):
+        return HttpResponse('VACINOU !')

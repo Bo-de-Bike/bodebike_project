@@ -1,37 +1,9 @@
 
 ## 1 - COMEÇANDO O PROJETO
 
-##1.1 SSH
+### 1.1 SSH
 
-* **Primeiro passo, verifique se existe ssh em seu computador:**
-
-```bash
-ls -al ~/.ssh
-```
-se existe um arquivo chamado "id_rsa.pub", abra o arquivo copie e pule para o ultimo passo.
-
-* **Segundo passo, gere uma ssh key:**
-
-```bash
-ssh-keygen -t rsa -C "email@example.com"
-```
-aperte ENTER e digite sua senha.
-
-depois:
-
-```bash
-ssh-add ~/.ssh/id_rsa
-```
-
-* **Ultimo passo:**
-```bash
-gedit ~/.ssh/id_rsa.pub
-```
-
-após abrir o arquivo, copie o código e vá em (No github):
-Settings > SSH Keys > Add Key e adicione o código.
-
-Link de ajuda : https://help.github.com/articles/generating-ssh-keys/
+https://help.github.com/articles/generating-ssh-keys/
 
 ### 1.2 - Clone
 
