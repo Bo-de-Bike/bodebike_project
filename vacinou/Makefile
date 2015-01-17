@@ -12,7 +12,7 @@ run:
 	./manage.py runserver
 
 restart:
-	dropdb generic_django_website
-	createdb generic_django_website
+	dropdb vacinou
+	createdb vacinou
 	./manage.py migrate
 	./manage.py createsuperuser
