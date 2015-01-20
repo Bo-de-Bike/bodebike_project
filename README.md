@@ -5,6 +5,14 @@
 
 https://help.github.com/articles/generating-ssh-keys/
 
+OBS : Se der esse erro quando vc for subir suas alterações : 
+
+" fatal: Could not read from remote repository.
+Please make sure you have the correct access rights
+and the repository exists. "
+
+rode o comando : git remote set-url origin git@github.com:Projeto-BD/vacinou_project.git
+
 ### 1.2 - Clone
 
 criem uma pasta Projeto e dentro dela:
@@ -90,6 +98,7 @@ $ git clone git@github.com:Projeto-BD/vacinou_project.git
     2.6.1 - Rodar o projeto : make run
     2.6.2 - Reseta o banco e cria um superusuário : make restart
     2.6.3 - Para fazer a migração do banco de dados : make setup
+    
     
     
 ## PRONTO - PODE CODAR !
