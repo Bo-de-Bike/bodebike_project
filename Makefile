@@ -6,6 +6,7 @@ deps:
 	pip install -r requirements.txt
 
 setup:
+	./manage.py makemigrations
 	./manage.py migrate
 
 run:
