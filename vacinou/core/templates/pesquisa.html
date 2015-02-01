@@ -51,7 +51,7 @@
             <div class="col-md-4 img-portfolio">
 
                 <h2>
-                    <a href="{{vacina.get_absolute_url}}">{{vacina.name}}</a>
+                    <a href="{{vacina.get_absolute_url}}">{{vacina.nome}}</a>
                 </h2>
                 <h4 id = "corH4">
                     Trata : 
@@ -65,7 +65,7 @@
 
                 </h4> 
                 <h4 id = "corH4">
-                    Idade para uso :  <span id="whiteColor">{{vacina.age}}  </span>
+                    Idade para uso :  <span id="whiteColor">{{vacina.idade}}  </span>
                 </h4>
             </div>
             {% endfor %}
@@ -77,13 +77,13 @@
                     <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a>
                 </h2>
                 <h4 id = "corH4">
-                    Vacina para tratamento: <a href="{{tipoVacina.get_absolute_url}}">{{tipoVacina.name}}</a> 
+                    Vacina para tratamento: <a href="{{tipoVacina.get_absolute_url}}">{{tipoVacina.nome}}</a> 
                     
 
 
                 </h4> 
                 <h4 id = "corH4">
-                    Idade para uso :  <span id="whiteColor">{{tipoVacina.age}}  </span>
+                    Idade para uso :  <span id="whiteColor">{{tipoVacina.idade}}  </span>
                 </h4>
             </div>
             {% endfor %}
@@ -92,7 +92,7 @@
               <div class="col-md-4 img-portfolio">
   
                     <h2>
-                        <a href="{{tipoVacina.id_vacina.get_absolute_url}}">{{tipoVacina.id_vacina.name}}</a>
+                        <a href="{{tipoVacina.id_vacina.get_absolute_url}}">{{tipoVacina.id_vacina.nome}}</a>
                     </h2>
 
                         

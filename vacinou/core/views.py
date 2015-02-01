@@ -14,13 +14,13 @@ def home(request):
 
 			context['titulo'] = "Vacinas a serem tomadas :"
 
-			vacinas = Vacina.objects.filter(age=int(request.POST['idade']))
+			vacinas = Vacina.objects.filter(idade=request.POST['idade']).distinct()
 			context['listaVacinas'] = vacinas
 
 			unidades = Unidade_de_Vacinacao.objects.all()
 			context['unidades_vacinacao'] = unidades
 
-			doencas = Doenca.objects.filter(id_vacina__age=int(request.POST['idade']))
+			doencas = Doenca.objects.filter(id_vacina__idade=request.POST['idade'])
 			context['doencas'] = doencas
 
 			return render(request,'pesquisa.html', context)
@@ -46,13 +46,13 @@ def home(request):
 
 			context['titulo'] = "Doenças que ela trata :"
 
-			vacina = Vacina.objects.get(name=request.POST['vacina'])
+			vacina = Vacina.objects.get(nome=request.POST['vacina'])
 			context['tipoVacina'] = vacina
 
 			unidades = Unidade_de_Vacinacao.objects.all()
 			context['unidades_vacinacao'] = unidades
 
-			doencas = Doenca.objects.filter(id_vacina__name=request.POST['vacina'])
+			doencas = Doenca.objects.filter(id_vacina__nome=request.POST['vacina'])
 			context['listaDoencas'] = doencas
 
 			return render(request,'pesquisa.html', context)
