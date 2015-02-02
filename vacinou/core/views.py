@@ -2,6 +2,18 @@ from django.shortcuts import render
 from vacinas.models import Vacina
 from doencas.models import Doenca
 from core.models import Unidade_de_Vacinacao
+from django.db import connection
+
+def idade(self):
+	cursor = connection.cursor()
+
+	cursor.execute("SELECT idade FROM vacinas_vacina")
+
+	row = cursor.fetchone()
+
+	return row
+
+
 
 def home(request):
 
@@ -17,7 +29,7 @@ def home(request):
 			vacinas = Vacina.objects.filter(idade=request.POST['idade']) 
 			context['listaVacinas'] = vacinas
 
-			unidades = Unidade_de_Vacinacao.objects.all()
+			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
 
 			doencas = Doenca.objects.filter(id_vacina__idade=request.POST['idade'])
@@ -31,7 +43,7 @@ def home(request):
 
 			context['titulo'] = "Vacina que trata :"
 
-			unidades = Unidade_de_Vacinacao.objects.all()
+			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
 
 			vacina = Doenca.objects.get(nome=request.POST['doenca'])
@@ -49,7 +61,7 @@ def home(request):
 			vacina = Vacina.objects.get(nome=request.POST['vacina'])
 			context['tipoVacina'] = vacina
 
-			unidades = Unidade_de_Vacinacao.objects.all()
+			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
 
 			doencas = Doenca.objects.filter(id_vacina__nome=request.POST['vacina'])
@@ -60,6 +72,9 @@ def home(request):
 	else:
 
 		context = {}
+
+		idades=Vacina.objects.all().order_by('idade').distinct('idade')
+		context['idades'] = idades
 
 		vacinas=Vacina.objects.all()
 		context['vacinas'] = vacinas
