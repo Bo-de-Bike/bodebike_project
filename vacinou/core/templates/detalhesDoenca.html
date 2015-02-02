@@ -1,0 +1,53 @@
+{% extends 'basePesquisa.html' %}
+{% load static %}
+
+{% block content %}
+
+    <!-- Page Content -->
+    <style type="text/css">
+           
+      #corH4{
+       color:green;
+       }
+
+       #whiteColor{
+       color: white;
+       }
+
+    </style>
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{{doenca.nome}}
+                   
+                </h1>
+
+            </div>
+        </div>
+        <!-- /.row -->
+      
+        <!-- Project One -->
+        <div class="row">
+            <div class="col-md-7">
+                <a href="portfolio-item.html">
+                    <img class="img-responsive img-hover" src="http://placehold.it/700x300" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+              
+                <h4  id = "corH4">
+                    Vacina para tratamento : <a href="{{tipoVacina.id_vacina.get_absolute_url}}">{{tipoVacina.id_vacina.nome}}</a> 
+
+                </h4>
+
+                <p>{{doenca.descricao}}</p>
+           
+            </div>
+        </div>
+
+
+        <hr>
+{% endblock %}
