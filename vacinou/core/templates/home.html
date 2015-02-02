@@ -14,14 +14,117 @@
                     <li>
                         <a class="page-scroll" href="#sobre">Sobre</a>
                     </li>
+                    <li>
+                        <a class="page-scroll" href="#time">Time</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contato</a>
+                    </li>
 
                 </ul>
             </div>
 {% endblock %}
 
 {% block content %}
+
+<style type="text/css">
+.team-member {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.team-member img {
+    max-width: 250px;
+    margin: 0 auto;
+    border: 7px solid #fff;
+}
+
+.team-member h4 {
+    margin-top: 25px;
+    margin-bottom: 0;
+    text-transform: none;
+}
+
+.team-member p {
+    margin-top: 0;
+}
+section#contact {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+section#contact .section-heading {
+    color: #fff;
+}
+
+section#contact .form-group {
+    margin-bottom: 25px;
+}
+
+section#contact .form-group input,
+section#contact .form-group textarea {
+    padding: 20px;
+}
+
+section#contact .form-group input.form-control {
+    height: auto;
+}
+
+section#contact .form-group textarea.form-control {
+    height: 236px;
+}
+
+section#contact .form-control:focus {
+    border-color: #fed136;
+    box-shadow: none;
+}
+
+section#contact::-webkit-input-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+section#contact:-moz-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+section#contact::-moz-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+section#contact:-ms-input-placeholder {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #bbb;
+}
+
+section#contact .text-danger {
+    color: #e74c3c;
+}
+.btn-xl {
+    padding: 20px 40px;
+    border-color: rgba(137, 108, 8, 1);
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    color: #B5ACAA;
+}
+.text-muted{
+  color:#B5ACAA;
+}
+.v{
+  margin-bottom: 40%;
+}
+</style>
             <div class="container">
-                <div class="row">
+                <div class="v">
+                    <br><br><br><br><br><br><br><br><br>
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Se vacinou ?</h1>
                         <p class="intro-text">Quer saber mais sobre a vacina a ser tomada? Clique abaixo e pesquise!</p>
@@ -36,7 +139,6 @@
                 <div role="tabpanel">
 
                    <div class="wrapper">
-                     
                       <ul class="nav nav-tabs" role="tablist" id="myTab">
                         <li role="presentation" id="centralizar" class="active"><a href="#idade" aria-controls="home" role="tab" data-toggle="tab"><span id="fonte">Por sua idade</span></a></li>
                         <li role="presentation"><a href="#vacina" aria-controls="profile" role="tab" data-toggle="tab"><span id="fonte">Por tipo de Vacina</span></a></li>
@@ -135,25 +237,103 @@
                 </div>
 
                 
-                              <section id="sobre" class="content-section text-center">
+              <section id="sobre" class="text-center">
+                <br><br><br><br><br><br>
                 <div class="download-section">
                     <div class="container">
                         <div class="col-lg-8 col-lg-offset-2">
-                            <h2>Quem somos nós?</h2>
-                            <p>O sistema Vacinou tem a intenção de ...</p>
+                            <h1>Sobre o Sistema</h1>
+                            <p>O " Vacinou ? " tem como modelo de negócio, fazer com que o usuário esteja melhor informado sobre as vacinas que ele terá de tomar ao longo da sua vida. O sistema está baseado em coletar e analizar informações gerando um conhecimento explícito sobre a(s) vacina(s) a ser(rem) tomada(s) para determinado tipo de doença.</p>
                             
                         </div>
                     </div>
-                </div>
+                  </div>
+<br><br><br><br><br><br><br>
             </section>     
 
            </section>
-
-            <!-- Download Section -->
-
+        <section class="">
+        <div class="container">
+            
+            <div class="container" id="time">
+              <br><br><br><br><br><br><br><br>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="{% static 'img/1.jpg' %}" class="img-responsive img-circle" alt="">
+                        <h4>João Uchoa</h4>
+                        <p class="text-muted">Desenvolverdor Back-End</p>
+                        <ul class="list-inline social-buttons">
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="{% static 'img/2.jpg' %}" class="img-responsive img-circle" alt="">
+                        <h4>Matheus Lins</h4>
+                        <p class="text-muted">Gerente do Projeto</p>
+                        <ul class="list-inline social-buttons">
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <img src="{% static 'img/3.jpg' %}" class="img-responsive img-circle" alt="">
+                        <h4>Jonnatas Matias</h4>
+                        <p class="text-muted">Designer e Front-Ender</p>
+                        <ul class="list-inline social-buttons">
+                        </ul>
+                    </div>
+                </div>
+              </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="container">
+          <br><br><br><br><br><br><br>
+                <div class="col-lg-12 text-center">
+                    <h1 class="section-heading">Entre em contato</h1>
+                    <h3 class="section-subheading text-muted">
+                    </h3>
+                </div>
+                
+                <div class="col-lg-12">
+                  <br><br><br>
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Campo origatório">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="E-mail" id="email" required data-validation-required-message="Campo origatório">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Telefone" id="phone">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Mensagem" id="message" required data-validation-required-message="Campo origatório"></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Enviar mensagem</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+        </div>
+    </section>
+<br><br><br>
             <footer>
                 <div class="container text-center">
-                    <p>Copyright &copy; Vacinou 2015</p>
+                    <p>Todos os direitos reservados &copy; Vacinou 2015</p>
                 </div>
             </footer>
 

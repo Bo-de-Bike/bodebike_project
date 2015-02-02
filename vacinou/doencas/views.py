@@ -15,4 +15,4 @@ def detalhes(request,slug):
 	context['tipoVacina'] = vacina
 	
 
-	return render(request, 'doencas/detalhesDoenca.html', context)
+	return render(request, 'detalhesDoenca.html', context)
