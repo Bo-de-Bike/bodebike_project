@@ -55,14 +55,15 @@
                         <br><br>
 
                        <div id="centro">
-                         <select name="idade" type="idade" >
-                          {% for vacina in vacinas %}
-                           <option>{{vacina.idade }}</span></option>
-                          {% endfor %}
-                         </select>
-                
-                         <br>
-                
+                          <div class="row-fluid">
+                           <select name="idade" type="idade" class="selectpicker" data-width="auto">
+                            {% for vacina in vacinas %}
+                             <option>{{vacina.idade }}</span></option>
+                            {% endfor %}
+                           </select>
+                  
+                           <br>
+                          </div>
                        </div>
 
                        <br><br>

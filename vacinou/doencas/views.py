@@ -1,8 +1,10 @@
+# -*- coding: utf8 -*-
 from django.shortcuts import render, get_object_or_404
 from doencas.models import Doenca
 
 def lista(request):
 	pass
+
 def detalhes(request,slug):
 	context = {}
 
@@ -13,4 +15,4 @@ def detalhes(request,slug):
 	context['tipoVacina'] = vacina
 	
 
-	return render(request, 'detalhesDoenca.html', context)
+	return render(request, 'doencas/detalhesDoenca.html', context)

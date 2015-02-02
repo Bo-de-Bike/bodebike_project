@@ -3,10 +3,23 @@
 {% load verbatim %}
 {% block content %}
 
-
 <style type="text/css">
 .container{
   
+}
+body{
+  background-color: white;
+  color: black;
+}
+.top-nav-collapse{
+  background-color: transparent;
+}
+a{
+  color: black;
+  background-color: transparent;
+}
+#logotipo{
+  margin-left: 90%;
 }
 
 </style>
@@ -37,7 +50,13 @@
         <style type="text/css">
            
            #corH4{
-            color:green;
+            color:black;
+           }
+           #corH3{
+            color:black;
+           }
+           #corH2{
+            color:black;
            }
 
            #whiteColor{
@@ -54,18 +73,16 @@
                     <a href="{{vacina.get_absolute_url}}">{{vacina.nome}}</a>
                 </h2>
                 <h4 id = "corH4">
-                    Trata : 
+                    Trata: 
                     {% for doenca in  doencas %}
                       {% if vacina == doenca.id_vacina %}
-                        <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}  </a>
-                        |
+                      <h4 id = "doenca"><a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a></h4>
                       {% endif %}
                     {% endfor %}
 
-
                 </h4> 
                 <h4 id = "corH4">
-                    Idade para uso :  <span id="whiteColor">{{vacina.idade}}  </span>
+                    Idade para uso :  <span>{{vacina.idade}}  </span>
                 </h4>
             </div>
             {% endfor %}
@@ -115,7 +132,7 @@
             margin-right: auto;
             width: 200px;
             height: 50px;
-     }
+          }
         </style>
         
      <script type="text/javascript">
@@ -145,7 +162,7 @@
       }
      </style>
         {% verbatim %}
-        
+        <h2>Veja as unidades mais próximas de você !</h2>
         <div class="row" ng-app ng-controller="MyCtrl" >
             <!-- Map Column -->
             <div class="col-md-8" >
