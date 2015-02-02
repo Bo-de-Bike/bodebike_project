@@ -11,7 +11,7 @@ def detalhes(request,slug):
 	vacina = get_object_or_404(Vacina, slug=slug)
 	context['vacina'] = vacina
 
-	doencas = Doenca.objects.filter(id_vacina__name=vacina)
+	doencas = Doenca.objects.filter(id_vacina__nome=vacina)
 	context['doencas'] = doencas
 
 	return render(request, 'detalhesVacina.html', context)

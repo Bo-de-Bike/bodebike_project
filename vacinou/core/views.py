@@ -15,7 +15,7 @@ def home(request):
 
 			context['titulo'] = "Vacinas a serem tomadas :"
 
-			vacinas = Vacina.objects.filter(idade=request.POST['idade']).distinct()
+			vacinas = Vacina.objects.filter(idade=request.POST['idade']) 
 			context['listaVacinas'] = vacinas
 
 			unidades = Unidade_de_Vacinacao.objects.all()

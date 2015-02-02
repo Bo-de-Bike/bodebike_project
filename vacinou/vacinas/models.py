@@ -10,6 +10,7 @@ class Vacina(models.Model):
 	via_administracao = models.CharField('Via de aplicaçao', max_length=25, null=True,blank=True)
 	descricao = models.TextField('Descriçao', blank=True)
 	slug = models.SlugField('Atalho')
+	image = models.ImageField(upload_to= 'home/images', verbose_name='Imagem', null = True, blank = True )
 
 	def __str__(self):
 		return self.nome
