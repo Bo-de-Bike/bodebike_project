@@ -16,11 +16,7 @@
     <link href="{% static 'css/grayscale.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <!-- Custom Fonts -->
-    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+    <link href='http://fonts.googleapis.com/css?family=ABeeZee:400,400italic' rel='stylesheet' type='text/css'>
     <link href="{% static 'css/modern-business.css' %}" rel="stylesheet">
     <script src="{% static 'lib/angular/angular.js' %}"></script>
 
@@ -41,6 +37,9 @@
         background-color: black;
        
     }
+    body, h3, h4, h2,h1{
+        font-family: 'ABeeZee', sans-serif;
+    }
       </style>
 
     <!-- Navigation -->
@@ -50,9 +49,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="{% url 'core:home' %}">
-                    <img id="logotipo" src="{% static 'vacinou.png' %}">
-                 </a>
+               
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -68,7 +65,7 @@
 
     <footer>
         <div class="container text-center">
-            <p>Copyright &copy; Vacinou 2015</p>
+            <p>Todos os direitos reservados &copy; Vacinou 2015</p>
         </div>
     </footer>
 

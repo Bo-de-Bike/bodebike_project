@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 from django.db import models
 
 class Unidade_de_Vacinacao(models.Model):

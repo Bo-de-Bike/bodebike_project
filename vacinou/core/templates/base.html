@@ -10,20 +10,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <title>Vacinou ?</title>
 
     <!-- Bootstrap Core CSS -->
-
+ <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{% static 'css/grayscale.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     <!-- Custom Fonts -->
-    <link href="{% static 'font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
-
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=ABeeZee:400,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
     {% block style %}
     {% endblock %}
@@ -45,9 +47,8 @@
         font-size: 20px;
       }
       #fonte{
-        
+
         text-transform: uppercase;
-        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
         font-weight: 700;
         letter-spacing: 1px;
         font-size: 18px;
@@ -84,6 +85,12 @@
 
     .row{
       margin-top: 330px;
+    }
+    body, h3, h4, h2,h1,.navbar-custom, select,.btn-xl{
+        font-family: 'ABeeZee', sans-serif;
+    }
+    .wrapper li{
+        border: 0px solid #000;
     }
       </style>
     <!-- Navigation -->

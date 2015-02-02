@@ -1,3 +1,4 @@
+# -*- coding: utf8 -*-
 from django.shortcuts import render
 from vacinas.models import Vacina
 from doencas.models import Doenca

@@ -17,3 +17,5 @@ restart:
 	createdb vacinou
 	./manage.py migrate
 	./manage.py createsuperuser
+user:
+	./manage.py createsuperuser
