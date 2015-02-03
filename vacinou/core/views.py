@@ -7,15 +7,6 @@ from django.db import connection
 from core.forms import ContactVacinou
 
 
-def idade(self):
-
-	cursor = connection.cursor()
-
-	cursor.execute("SELECT idade FROM vacinas_vacina")
-
-	row = cursor.fetchone()
-
-	return row
 
 def home(request):
 
@@ -31,12 +22,16 @@ def home(request):
 
 			vacinas = Vacina.objects.filter(id_vacina__idade=request.POST['idade']) 
 			context['listaVacinas'] = vacinas
+			#SELECT * FROM Vacina V,Idade I, Idade_Vacina IV WHERE V.id = IV.id_vacina and I.id = IV.id_vacina and I.idade = request.POST['idade']
 
 			doencas = Doenca.objects.filter(id_vacina__id_vacina__idade = request.POST['idade'])
 			context['doencas'] = doencas
+			#SELECT * FROM Vacina V,Idade I, Idade_Vacina IV, Doenca_Vacina DV, Doenca D WHERE V.id = IV.id_vacina and I.id = IV.id_vacina and V.id = DV.id_vacina and D.id = DV.id_doenca and I.idade = request.POST['idade']
+
 
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
+			#SELECT * FROM Unidade_de_Vacinacao ORDER BY bairro
 
 
 
@@ -48,9 +43,11 @@ def home(request):
 
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
+			#SELECT * FROM Unidade_de_Vacinacao ORDER BY bairro
 			
 			vacinas = Vacina.objects.filter(v_doenca__nome=request.POST['doenca'])
 			context['tipoVacina'] = vacinas
+			#SELECT * FROM Vacina V,Doenca D, Doenca_Vacina DV WHERE V.id = DV.id_vacina and D.id = DV.id_doenca and D.nome = request.POST['doenca']
 
 		elif 'vacina' in request.POST:
 			context = {}
@@ -61,14 +58,15 @@ def home(request):
 
 			idades = Idade.objects.filter(id_vacina__nome=request.POST['vacina'])
 			context['idades'] = idades
+			#SELECT * FROM Vacina V,Idade I, Idade_Vacina IV WHERE V.id = IV.id_vacina and I.id = IV.id_vacina and V.nome = request.POST['vacina']
 
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
-
-
+			#SELECT * FROM Unidade_de_Vacinacao ORDER BY bairro
 
 			doencas = Doenca.objects.filter(id_vacina__nome=request.POST['vacina'])
 			context['listaDoencas'] = doencas
+			#SELECT * FROM Doenca D,Vacina V, Doenca_Vacina DV WHERE V.id = DV.id_vacina and D.id = DV.id_doenca and V.nome = request.POST['vacina']
 
 
 		form = ContactVacinou(request.POST)
@@ -90,12 +88,16 @@ def home(request):
 
 		idades=Idade.objects.all().order_by('idade')
 		context['idades'] = idades
+		#SELECT * FROM Idade ORDER BY idade
 
 		vacinas=Vacina.objects.all()
 		context['vacinas'] = vacinas
+		#SELECT * FROM Vacina 
+
 
 		doencas = Doenca.objects.all()
 		context['doencas'] = doencas
+		#SELECT * FROM Doenca
 
 		return render(request,'home.html',context)
 
