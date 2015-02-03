@@ -11,22 +11,40 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Unidade_de_Vacinacao',
+            name='Telefone',
             fields=[
-                ('id', models.AutoField(serialize=False, primary_key=True, auto_created=True, verbose_name='ID')),
-                ('endereco', models.CharField(max_length=400, verbose_name='Endereço')),
-                ('unidade', models.CharField(max_length=100, verbose_name='Unidade')),
-                ('bairro', models.CharField(max_length=30, verbose_name='Bairro')),
-                ('fone', models.CharField(blank=True, max_length=14, verbose_name='Telefone')),
-                ('latitude', models.CharField(blank=True, max_length=20, verbose_name='latitude')),
-                ('longitude', models.CharField(blank=True, max_length=20, verbose_name='longitude')),
-                ('slug', models.SlugField(verbose_name='Atalho')),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('fone', models.CharField(max_length=30, verbose_name='Telefone', blank=True)),
             ],
             options={
-                'verbose_name_plural': 'Unidades de Vacinação',
-                'verbose_name': 'Unidade de Vacinação',
-                'ordering': ['unidade'],
+                'ordering': ['fone'],
+                'verbose_name': 'Telefone',
+                'verbose_name_plural': 'Telefones',
             },
             bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='Unidade_de_Vacinacao',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('rpa', models.IntegerField(verbose_name='Rpa')),
+                ('unidade', models.CharField(max_length=100, verbose_name='Unidade')),
+                ('endereco', models.CharField(max_length=100, verbose_name='Endereco')),
+                ('bairro', models.CharField(max_length=30, verbose_name='Bairro')),
+                ('latitude', models.CharField(max_length=20, verbose_name='latitude', blank=True)),
+                ('longitude', models.CharField(max_length=20, verbose_name='longitude', blank=True)),
+            ],
+            options={
+                'ordering': ['unidade'],
+                'verbose_name': 'Unidade de Vacinação',
+                'verbose_name_plural': 'Unidades de Vacinação',
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='telefone',
+            name='id_unidade',
+            field=models.ForeignKey(verbose_name='id_unidade', to='core.Unidade_de_Vacinacao', related_name='t_unidade'),
+            preserve_default=True,
         ),
     ]

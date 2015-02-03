@@ -4,16 +4,26 @@ from vacinas.models import Vacina,Idade
 from doencas.models import Doenca
 from core.models import Unidade_de_Vacinacao,Telefone
 from django.db import connection
+from core.forms import ContactVacinou
 
 
+def idade(self):
 
+	cursor = connection.cursor()
+
+	cursor.execute("SELECT idade FROM vacinas_vacina")
+
+	row = cursor.fetchone()
+
+	return row
 
 def home(request):
 
 	if request.method == 'POST':
-		if 'idade' in request.POST:
 
-			context = {}
+		context = {}
+
+		if 'idade' in request.POST:
 
 			context['tipo_de_pesquisa'] = ("Idade : " + request.POST['idade'])
 
@@ -30,8 +40,6 @@ def home(request):
 
 
 
-			return render(request,'pesquisa.html', context)
-
 		elif 'doenca' in request.POST:
 
 			context = {'tipo_de_pesquisa':("Tipo de doença : " + request.POST['doenca'])}
@@ -43,9 +51,6 @@ def home(request):
 
 			vacinas = Vacina.objects.filter(v_doenca__nome=request.POST['doenca'])
 			context['tipoVacina'] = vacinas
-
-
-			return render(request,'pesquisa.html', context)
 
 		elif 'vacina' in request.POST:
 			context = {}
@@ -65,8 +70,20 @@ def home(request):
 			doencas = Doenca.objects.filter(id_vacina__nome=request.POST['vacina'])
 			context['listaDoencas'] = doencas
 
-			return render(request,'pesquisa.html', context)
-	
+
+		form = ContactVacinou(request.POST)
+		if form.is_valid():
+			print ('sim')
+			context['is_valid'] = True
+			form.send_mail()
+			form = ContactVacinou()
+		else:
+			form = ContactVacinou()
+			print ('nao')
+		context['form'] = form
+
+		return render(request,'pesquisa.html', context)
+
 	else:
 
 		context = {}
@@ -79,6 +96,6 @@ def home(request):
 
 		doencas = Doenca.objects.all()
 		context['doencas'] = doencas
-		
+
 		return render(request,'home.html',context)
 

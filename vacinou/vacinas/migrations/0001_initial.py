@@ -13,39 +13,39 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Idade',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('idade', models.CharField(max_length=15, verbose_name='Idade de uso')),
             ],
             options={
                 'ordering': ['idade'],
-                'verbose_name_plural': 'Idade',
                 'verbose_name': 'Idade',
+                'verbose_name_plural': 'Idade',
             },
             bases=(models.Model,),
         ),
         migrations.CreateModel(
             name='Vacina',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', auto_created=True, primary_key=True, serialize=False)),
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('nome', models.CharField(max_length=100, verbose_name='Nome')),
                 ('dose', models.CharField(max_length=200, verbose_name='Dose')),
-                ('dose_qtd', models.CharField(blank=True, max_length=50, null=True, verbose_name='Quantidade da dose')),
-                ('via_administracao', models.CharField(blank=True, max_length=25, null=True, verbose_name='Via de aplicaçao')),
-                ('descricao', models.TextField(blank=True, verbose_name='Descriçao')),
+                ('dose_qtd', models.CharField(max_length=50, verbose_name='Quantidade da dose', blank=True, null=True)),
+                ('via_administracao', models.CharField(max_length=25, verbose_name='Via de aplicaçao', blank=True, null=True)),
+                ('descricao', models.TextField(verbose_name='Descriçao', blank=True)),
                 ('slug', models.SlugField(verbose_name='Atalho')),
-                ('image', models.ImageField(upload_to='home/images', blank=True, null=True, verbose_name='Imagem')),
+                ('image', models.ImageField(verbose_name='Imagem', upload_to='home/images', blank=True, null=True)),
             ],
             options={
                 'ordering': ['nome'],
-                'verbose_name_plural': 'Vacina',
                 'verbose_name': 'Vacina',
+                'verbose_name_plural': 'Vacina',
             },
             bases=(models.Model,),
         ),
         migrations.AddField(
             model_name='idade',
             name='id_vacina',
-            field=models.ManyToManyField(to='vacinas.Vacina', related_name='id_vacina', verbose_name='id_vacina'),
+            field=models.ManyToManyField(verbose_name='id_vacina', related_name='id_vacina', to='vacinas.Vacina'),
             preserve_default=True,
         ),
     ]
