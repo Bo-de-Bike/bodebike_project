@@ -6,17 +6,16 @@ from core.mail import send_mail_template
 
 class ContactVacinou(forms.Form):
 
-	name = forms.CharField(label = "Nome", max_length = 100)
-	email = forms.EmailField(label = "E-mail")
-	message = forms.CharField(label = "Mensagem", widget = forms.Textarea)
+	name = forms.CharField(label='Nome', max_length=100)
+	email = forms.EmailField(label='E-mail')
 
 	def send_mail(self):
-		subject = 'Contato Vavinou'
-		# message = 'Nome: %(name)s;E-mail: %(email)s;%(message)s'
-		context = {
-			'name': self.cleaned_data['nome'],
-			'email': self.cleaned_data['email'],
-			'message': self.cleaned_data['mensagem'],
-		}
-		template_name = 'contact_email.html'
-		send_mail_template(subject, template_name, context, [settings.CONTACT_EMAIL])
+	    subject = 'Contato'
+	    context = {
+	        'name': self.cleaned_data['name'],
+	        'email': self.cleaned_data['email'],
+	    }
+	    template_name = 'contact_email.html'
+	    send_mail_template(
+	        subject, template_name, context, [settings.CONTACT_EMAIL]
+	    )

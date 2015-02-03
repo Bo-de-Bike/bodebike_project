@@ -125,7 +125,7 @@ section#contact .text-danger {
 </style>
             <div class="container">
                 <div class="v">
-                    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    <br><br><br><br><br><br>
                     <div class="col-md-8 col-md-offset-2">
                         <h1 class="brand-heading">Se vacinou ?</h1>
                         <p class="intro-text">Quer saber mais sobre a vacina a ser tomada? Clique abaixo e pesquise!</p>
@@ -134,11 +134,8 @@ section#contact .text-danger {
                         </a>
                     </div>
                 </div>
-                    <br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br>
-                    <br><br><br><br><br><br><br>
+
                 <section id="pesquise" class="container content-section text-center">
-                    <br><br><br><br><br><br><br>
                 
                 <div role="tabpanel">
 
@@ -163,8 +160,8 @@ section#contact .text-danger {
                        <div id="centro">
                           <div class="row-fluid">
                            <select name="idade" type="idade" class="selectpicker" data-width="auto">
-                            {% for idade in idades %}
-                             <option>{{idade.idade }}</span></option>
+                            {% for vacina in vacinas %}
+                             <option>{{vacina.idade }}</span></option>
                             {% endfor %}
                            </select>
                   
@@ -239,10 +236,10 @@ section#contact .text-danger {
 
                   </div>
                 </div>
-               <br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
                 
               <section id="sobre" class="text-center">
-              <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br>
                 <div class="download-section">
                     <div class="container">
                         <div class="col-lg-8 col-lg-offset-2">
@@ -260,7 +257,7 @@ section#contact .text-danger {
         <div class="container">
             
             <div class="container" id="time">
-              <br><br><br><br><br><br><br><br><br> <br><br><br><br><br><br><br><br><br>
+              <br><br><br><br><br><br><br><br><br>
                 <div class="col-md-4">
                     <div class="team-member">
                         <img src="{% static 'img/1.jpg' %}" class="img-responsive img-circle" alt="">
@@ -291,9 +288,7 @@ section#contact .text-danger {
               </div>
         </div>
     </section>
-
-    <br><br><br><br><br><br><br>
-    <section id="contact">
+ <section id="contact">
         <div class="container"  id="contactForm">
           <br><br><br><br><br><br><br><br>
                 <div class="col-lg-12 text-center">
@@ -304,26 +299,26 @@ section#contact .text-danger {
                 
                 <div class="col-lg-12" >
                   <br><br><br>
-                    <form name="sentMessage" method = "post" novalidate>{% csrf_token %}
+                    <form name="sentMessage" novalidate>
                         <div class="">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Nome</label>
-                                    {{ form.name|attr:"type:text"|add_class:"form-control"|attr:"placeholder:Seu nome"|attr:"name:nome"}}
-                                    {{ form.errors.name}}
-
+                                    <input type="text" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Campo origatório">
+                                    <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <label>E-mail</label>
-                                    {{ form.email|attr:"type:text"|add_class:"form-control"|attr:"name:email"|attr:"placeholder:Seu email"}}
-                                    {{ form.errors.email}}
+                                    <input type="email" class="form-control" placeholder="E-mail" id="email" required data-validation-required-message="Campo origatório">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Telefone" id="phone">
+                                    <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Mensagem:</label>
-                                    {{ form.mensagem|attr:"type:textarea"|add_class:"form-control"|attr:"placeholder:Escreva aqui sua mensagem"|attr:"name:mensagem"}}
-                                    {{ form.errors.mensagem}}
+                                    <textarea class="form-control" placeholder="Mensagem" id="message" required data-validation-required-message="Campo origatório"></textarea>
+                                    <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="clearfix"></div>
