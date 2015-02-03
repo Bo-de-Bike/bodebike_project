@@ -29,14 +29,16 @@ def home(request):
 
 			context['titulo'] = "Vacinas a serem tomadas :"
 
-			vacinas = Vacina.objects.filter(idade=request.POST['idade']) 
+			vacinas = Vacina.objects.filter(id_vacina__idade=request.POST['idade']) 
 			context['listaVacinas'] = vacinas
+
+			doencas = Doenca.objects.filter(id_vacina__id_vacina__idade = request.POST['idade'])
+			context['doencas'] = doencas
 
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
 
-			doencas = Doenca.objects.filter(id_vacina__idade=request.POST['idade'])
-			context['doencas'] = doencas
+
 
 		elif 'doenca' in request.POST:
 
@@ -51,13 +53,14 @@ def home(request):
 			context['tipoVacina'] = vacina
 
 		elif 'vacina' in request.POST:
+			context = {}
 
-			context = {'tipo_de_pesquisa':("Tipo de vacina : " + request.POST['vacina'])}
+			context['tipo_de_pesquisa'] = ("Tipo de vacina : " + request.POST['vacina'])
 
 			context['titulo'] = "Doenças que ela trata :"
 
-			vacina = Vacina.objects.get(nome=request.POST['vacina'])
-			context['tipoVacina'] = vacina
+			idades = Idade.objects.filter(id_vacina__nome=request.POST['vacina'])
+			context['idades'] = idades
 
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
