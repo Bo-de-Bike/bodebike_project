@@ -48,7 +48,7 @@ def home(request):
 
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
-
+			
 			vacinas = Vacina.objects.filter(v_doenca__nome=request.POST['doenca'])
 			context['tipoVacina'] = vacinas
 
