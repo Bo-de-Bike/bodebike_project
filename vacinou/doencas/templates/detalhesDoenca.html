@@ -60,7 +60,7 @@
                 <h4  id = "corH4">
                     Vacina para tratamento : 
                     {% for vacina in tipoVacina %}
-                       <a href="{{tipoVacina.id_vacina.get_absolute_url}}">{{vacina.nome}}</a> |
+                       <a href="{{vacina.get_absolute_url}}">{{vacina.nome}}</a> |
                     {% endfor %}
 
                 </h4>

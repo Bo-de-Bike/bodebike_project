@@ -10,9 +10,11 @@ def detalhes(request,slug):
 
 	doenca = get_object_or_404(Doenca, slug=slug)
 	context['doenca'] = doenca
+	#SELECT * FROM Doenca D WHERE D.slug = slug
 
 	vacina = Vacina.objects.filter(v_doenca__slug= slug)
 	context['tipoVacina'] = vacina
+	#SELECT * FROM Doenca D,Vacina V, Doenca_Vacina DV WHERE V.id = DV.id_vacina and D.id = DV.id_doenca and D.slug = slug
 	
 
 	return render(request, 'detalhesDoenca.html', context)
