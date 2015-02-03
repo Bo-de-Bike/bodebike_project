@@ -42,7 +42,7 @@ def home(request):
 
 		elif 'doenca' in request.POST:
 
-			context = {'tipo_de_pesquisa':("Tipo de doença : " + request.POST['doenca'])}
+			context = {'tipo_de_pesquisa':("Tipo de doenca : " + request.POST['doenca'])}
 
 			context['titulo'] = "Vacina que trata :"
 
