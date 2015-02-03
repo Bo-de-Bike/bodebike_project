@@ -101,15 +101,7 @@ a{
                 <h2>
                     <a href="{{vacina.get_absolute_url}}">{{vacina.nome}}</a>
                 </h2>
-                <h4 id = "corH4">
-                    Trata: 
-                    {% for doenca in  doencas %}
-                      {% if vacina.id == doenca.id_vacina.id %}
-                      <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a>
-                      {% endif %}
-                    {% endfor %}
 
-                </h4> 
 
             </div>
             {% endfor %}
@@ -127,16 +119,16 @@ a{
             </div>
             {% endfor %}
 
-            {% if tipoVacina %}
+            {%for vacina in tipoVacina%}
               <div class="col-md-4 img-portfolio">
   
                     <h2>
-                        <a href="{{tipoVacina.id_vacina.get_absolute_url}}">{{tipoVacina.id_vacina.nome}}</a>
+                        <a href="{{vacina.get_absolute_url}}">{{vacina.nome}}</a>
                     </h2>
 
                         
               </div>
-            {% endif %}
+            {% endfor %}
         </div>
         <!-- /.row -->
 
@@ -169,7 +161,6 @@ a{
                    "localizacao" : "{{unidade.latitude}},{{unidade.longitude}}",
                    "nome" : "{{unidade.unidade}}",
                    "endereco" : "{{unidade.endereco}}",
-                   "telefone" : "{{unidade.fone}}"
 
                },
              {% endfor %}
@@ -198,13 +189,9 @@ a{
                 <h2>Unidades de atendimento</h2>
                 <select id="selectBox" class="pure-input-1-2" ng-model ="bairro_" >
                     <option  ng-repeat = "unidade in unidades" value="{{unidade.localizacao}}" >{{unidade.nome_localizacao}}</option>
-                    
-                    
+                     
                 </select>
                 
-                <div>
-                  <h3>Contato</h3>
-                </div>
 
             </div>
         </div>

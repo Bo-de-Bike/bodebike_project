@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from vacinas.models import Vacina,Idade
 from doencas.models import Doenca
-from core.models import Unidade_de_Vacinacao
+from core.models import Unidade_de_Vacinacao,Telefone
 from django.db import connection
 
 
@@ -41,8 +41,8 @@ def home(request):
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
 
-			vacina = Doenca.objects.get(nome=request.POST['doenca'])
-			context['tipoVacina'] = vacina
+			vacinas = Vacina.objects.filter(v_doenca__nome=request.POST['doenca'])
+			context['tipoVacina'] = vacinas
 
 
 			return render(request,'pesquisa.html', context)
@@ -59,6 +59,8 @@ def home(request):
 
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
+
+
 
 			doencas = Doenca.objects.filter(id_vacina__nome=request.POST['vacina'])
 			context['listaDoencas'] = doencas

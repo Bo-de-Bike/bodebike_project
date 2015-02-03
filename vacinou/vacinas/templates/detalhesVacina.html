@@ -40,9 +40,9 @@
                 <h4  id = "corH4">
                     Trata :
                     {% for doenca in  doencas %}
-                      {% if vacina.id == doenca.id_vacina.id %}
-                      <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a>
-                      {% endif %}
+                     
+                      <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a>|
+                    
                     {% endfor %}
                 </h4>
                 <h4 id = "corH4">
