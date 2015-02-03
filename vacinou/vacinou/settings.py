@@ -87,14 +87,10 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 MEDIA_URL = '/media/'
 
-
 TEMPLATE_DIRS = [
     os.path.join(BASE_DIR, 'templates'),
     BASE_DIR,
 ]
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
@@ -109,3 +105,4 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'vacinouenterprise@gmail.com'
 EMAIL_HOST_PASSWORD = 'vacinouj2m'
 EMAIL_PORT = 587
+

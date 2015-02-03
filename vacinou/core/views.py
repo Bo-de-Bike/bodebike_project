@@ -1,10 +1,11 @@
 # -*- coding: utf8 -*-
 from django.shortcuts import render
-from vacinas.models import Vacina
+from vacinas.models import Vacina,Idade
 from doencas.models import Doenca
 from core.models import Unidade_de_Vacinacao
 from django.db import connection
 from core.forms import ContactVacinou
+
 
 def idade(self):
 	cursor = connection.cursor()
@@ -14,6 +15,7 @@ def idade(self):
 	row = cursor.fetchone()
 
 	return row
+
 def home(request):
 
 	if request.method == 'POST':
@@ -72,7 +74,7 @@ def home(request):
 
 		context = {}
 
-		idades=Vacina.objects.all().order_by('idade').distinct('idade')
+		idades=Idade.objects.all().order_by('idade')
 		context['idades'] = idades
 
 		vacinas=Vacina.objects.all()
