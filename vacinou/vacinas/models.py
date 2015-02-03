@@ -2,9 +2,7 @@
 from django.db import models
 
 class Vacina(models.Model):
-	idade= models.CharField('Idade de uso', max_length=15)
 	nome = models.CharField('Nome',max_length=100)
-	doenca_protecao = models.CharField('Trata doença', max_length=200)
 	dose = models.CharField('Dose', max_length=200)
 	dose_qtd = models.CharField('Quantidade da dose', max_length=50, null=True,blank=True)
 	via_administracao = models.CharField('Via de aplicaçao', max_length=25, null=True,blank=True)
@@ -24,3 +22,15 @@ class Vacina(models.Model):
 		verbose_name_plural = "Vacina"
 		ordering = ['nome']
 
+
+class Idade(models.Model):
+	id_vacina = models.ManyToManyField(Vacina,verbose_name='id_vacina', related_name = 'id_vacina')
+	idade= models.CharField('Idade de uso', max_length=15)
+
+	def __str__(self):
+		return self.idade
+
+	class Meta:
+		verbose_name = "Idade"
+		verbose_name_plural = "Idade"
+		ordering = ['idade']
