@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'vacinas',
     'doencas',
     'django_verbatim',
+    'widget_tweaks',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -99,3 +100,12 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
     BASE_DIR,
 )
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+DEFAULT_FROM_EMAIL = 'Vacinou <vacinouenterprise@gmail.com>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'vacinouenterprise@gmail.com'
+EMAIL_HOST_PASSWORD = 'vacinouj2m'
+EMAIL_PORT = 587

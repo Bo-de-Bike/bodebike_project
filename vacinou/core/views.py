@@ -4,6 +4,7 @@ from vacinas.models import Vacina
 from doencas.models import Doenca
 from core.models import Unidade_de_Vacinacao
 from django.db import connection
+from core.forms import ContactVacinou
 
 def idade(self):
 	cursor = connection.cursor()
@@ -13,12 +14,10 @@ def idade(self):
 	row = cursor.fetchone()
 
 	return row
-
-
-
 def home(request):
 
 	if request.method == 'POST':
+
 		if 'idade' in request.POST:
 
 			context = {}
@@ -69,7 +68,6 @@ def home(request):
 			context['listaDoencas'] = doencas
 
 			return render(request,'pesquisa.html', context)
-	
 	else:
 
 		context = {}
@@ -82,6 +80,18 @@ def home(request):
 
 		doencas = Doenca.objects.all()
 		context['doencas'] = doencas
-		
+
+		if request.method == "POST":
+			context = {}
+			form = ContactVacinou(request.POST)
+
+			if form.is_valid():
+				context['is_valid'] = True
+				form.send_mail()
+				form = ContactVacinou()
+			else:
+				form = ContactVacinou()
+			context['form'] = form
+
 		return render(request,'home.html',context)
 
