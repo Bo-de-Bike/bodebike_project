@@ -6,12 +6,31 @@
     <!-- Page Content -->
     <style type="text/css">
            
-      #corH4{
-       color:green;
+       <style type="text/css">
+       .container{
+         
        }
-
-       #whiteColor{
-       color: white;
+       body{
+         background-color: white;
+         color: black;
+       }
+       .top-nav-collapse{
+         background-color: transparent;
+       }
+       a{
+         color: black;
+         background-color: transparent;
+       }
+       #logotipo{
+         margin-left: 90%;
+       }
+       .btn-xl {
+           padding: 10px 20px;
+           border-color: black;
+           border-radius: 5px;
+           font-size: 15px;
+           font-weight: 700;
+           color: #B5ACAA;
        }
 
     </style>
@@ -39,7 +58,10 @@
             <div class="col-md-5">
               
                 <h4  id = "corH4">
-                    Vacina para tratamento : <a href="{{tipoVacina.id_vacina.get_absolute_url}}">{{tipoVacina.id_vacina.nome}}</a> 
+                    Vacina para tratamento : 
+                    {% for vacina in tipoVacina %}
+                       <a href="{{tipoVacina.id_vacina.get_absolute_url}}">{{vacina.nome}}</a> |
+                    {% endfor %}
 
                 </h4>
 
