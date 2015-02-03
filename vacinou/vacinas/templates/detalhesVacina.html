@@ -40,14 +40,17 @@
                 <h4  id = "corH4">
                     Trata :
                     {% for doenca in  doencas %}
-                      {% if vacina == doenca.id_vacina %}
-                        <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}  </a>
-                        |
+                      {% if vacina.id == doenca.id_vacina.id %}
+                      <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a>
                       {% endif %}
                     {% endfor %}
                 </h4>
                 <h4 id = "corH4">
-                    Idade para uso : <span id="whiteColor">{{vacina.idade}}</span>
+                    Idade para uso : 
+                     {% for idade in idades %}
+                    <span id="whiteColor">{{idade.idade}}</span>|
+                     {% endfor %}
+                     
                 </h4>
                 <p>{{vacina.descricao}}</p>
            

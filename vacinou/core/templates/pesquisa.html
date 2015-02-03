@@ -45,6 +45,25 @@ a{
             </div>
         </div>
 
+        {% if idades %}
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header"> 
+                    Idade para uso :
+                </h1>
+
+            {% for idade in idades %}
+              <div class="col-md-4 img-portfolio">
+                <h2 id = "corH4">
+                    |{{idade.idade}}|
+                </h2>
+              </div>
+                
+            {% endfor %}
+
+            </div>
+        </div>
+        {% endif %}
 
         <div class="row">
             <div class="col-lg-12">
@@ -73,6 +92,8 @@ a{
 
         </style>
         <!-- Projects Row -->
+
+
         <div class="row">
             {% for vacina in listaVacinas %}
             <div class="col-md-4 img-portfolio">
@@ -83,17 +104,17 @@ a{
                 <h4 id = "corH4">
                     Trata: 
                     {% for doenca in  doencas %}
-                      {% if vacina == doenca.id_vacina %}
-                      <h4 id = "doenca"><a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a></h4>
+                      {% if vacina.id == doenca.id_vacina.id %}
+                      <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a>
                       {% endif %}
                     {% endfor %}
 
                 </h4> 
-                <h4 id = "corH4">
-                    Idade para uso :  <span>{{vacina.idade}}  </span>
-                </h4>
+
             </div>
             {% endfor %}
+
+
 
             {% for doenca in listaDoencas %}
             <div class="col-md-4 img-portfolio">
@@ -101,15 +122,8 @@ a{
                 <h2>
                     <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a>
                 </h2>
-                <h4 id = "corH4">
-                    Vacina para tratamento: <a href="{{tipoVacina.get_absolute_url}}">{{tipoVacina.nome}}</a> 
-                    
+    
 
-
-                </h4> 
-                <h4 id = "corH4">
-                    Idade para uso :  <span id="whiteColor">{{tipoVacina.idade}}  </span>
-                </h4>
             </div>
             {% endfor %}
 
