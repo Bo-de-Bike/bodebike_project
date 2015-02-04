@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'vacinou.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'vacinou_postgres',
+        'NAME': 'vacinou_bd',
             }
 }
 

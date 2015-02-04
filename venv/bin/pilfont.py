@@ -1,4 +1,4 @@
-#!/home/uchoavaz/Desktop/vacinou_project/venv/bin/python3
+#!/home/uchoavaz/vacinou_project/venv/bin/python3
 #
 # The Python Imaging Library
 # $Id$

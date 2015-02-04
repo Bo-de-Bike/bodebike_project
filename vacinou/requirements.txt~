@@ -20,4 +20,5 @@ model-mommy==1.2
 
 # ==template==
 django-verbatim
+django-widget-tweaks==1.3
 

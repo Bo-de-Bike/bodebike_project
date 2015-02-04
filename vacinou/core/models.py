@@ -2,8 +2,7 @@
 from django.db import models
 
 class Unidade_de_Vacinacao(models.Model):
-
-	rpa = models.IntegerField('Rpa')
+	
 	unidade = models.CharField('Unidade', max_length= 100)
 	endereco = models.CharField('Endereco', max_length= 100)
 	bairro = models.CharField('Bairro', max_length = 30)
