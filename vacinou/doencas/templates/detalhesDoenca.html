@@ -3,6 +3,10 @@
 
 {% block content %}
 
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+
+
     <!-- Page Content -->
     <style type="text/css">
            
@@ -32,6 +36,9 @@
            font-weight: 700;
            color: #B5ACAA;
        }
+       .texto{
+          border: 1px solid gray;
+       }
 
     </style>
     <!-- Page Content -->
@@ -51,21 +58,47 @@
         <!-- Project One -->
         <div class="row">
             <div class="col-md-7">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="http://placehold.it/700x300" alt="">
-                </a>
+
+              {% if tipoVacina.image %}
+
+                <img class="img-responsive img-hover" src="{{ tipoVacina.image.url }}" alt="">
+
+              {% else %}
+
+                <img class="img-responsive img-hover" src="http://placehold.it/700x300" alt="">
+
+              {% endif %}
+
+
             </div>
             <div class="col-md-5">
-              
-                <h4  id = "corH4">
-                    Vacina para tratamento : 
-                    {% for vacina in tipoVacina %}
-                       <a href="{{vacina.get_absolute_url}}">{{vacina.nome}}</a> |
-                    {% endfor %}
+                      <center><div class="alert alert-info">
+                        <h2>Vacina para tratamento</h2>
+                      </div></center>
+                <h4 id = "corH4">
+                      
+                    
+                    
+                      <center><ul class="nav nav-pills">
+                        {% for vacina in tipoVacina %}
+                          <li class="">
+                            
+                            <button class="pure-button">
+                                <i class="fa fa-cog"></i>
+                                  <a href="{{vacina.get_absolute_url}}"><h3>{{vacina.nome|safe}}</h3>
+                                  </a>
+                            </button>
+                          </li>
+                          {% endfor %}
+                      </ul></center>
+                    
+                        
 
                 </h4>
-
-                <p>{{doenca.descricao | linebreaks}}</p>
+                <div class="texto">
+                    <center><p>{{doenca.descricao|linebreaks|safe}}</p></center>
+                </div>
+                
            
             </div>
         </div>
