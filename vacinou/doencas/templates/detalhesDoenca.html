@@ -17,7 +17,7 @@
        body{
         background-color: white;
          color: white;
-           background: url({% static 'img/intro-bg.jpg' %}) no-repeat  right scroll;
+           background: url({% static 'img/intro-bg.jpg' %}) no-repeat scroll;
 
        }
        .top-nav-collapse{
@@ -99,19 +99,13 @@
                         {% for vacina in tipoVacina %}
                           <li class="">
                             
-<<<<<<< HEAD
-                            <button class="pure-button">
-                                <i class="fa fa-cog"></i>
-                                  <a href="{{vacina.get_absolute_url}}"><h3>{{vacina.nome}}</h3>
-                                  </a>
-                            </button>
-=======
+
                             <a href="{{vacina.get_absolute_url}}"><button class="pure-button">
                                 <i class="fa fa-eyedropper"></i>
                                   <h3>{{vacina.nome|safe}}</h3>
                                   
                             </button></a>
->>>>>>> f1bc0f607968c77b22938de24628a6fe5002d0f1
+
                           </li>
                           {% endfor %}
                           

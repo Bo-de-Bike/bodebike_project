@@ -14,7 +14,7 @@
        body{
         background-color: white;
          color: white;
-           background: url({% static 'img/intro-bg.jpg' %}) no-repeat  right scroll;
+           background: url({% static 'img/intro-bg.jpg' %}) no-repeat  scroll;
 
        }
        .top-nav-collapse{
@@ -101,29 +101,92 @@
                           
                       </ul></center>
                 </h4>
-               <center><div class="">
-                        <h2>Idade para uso</h2>
-                      </div></center>
-                <h4 id = "corH4">
-                  <center><ul class="nav nav-pills">
 
+
+  
+            </div>
+
+  
+
+        </div>
+        <br>
+        <br>
+        <hr>
+
+        <div class ="row">
+          <div class="col-md-4 img-portfolio">
+               <center><h2 id="n" > Idade para uso</h2></center>
+                    <center><ul class="nav nav-pills">
+                        
                         {% for idade in idades %}
-                          <li class="">
+                          <center><li class="">
                             
-                                  <h1>{{idade.idade|safe}} anos |</h1>
+                                  <h3 class = "alert"> {{ idade.idade|safe }} </h3>
                                   
                             </button></a>
-                          </li>
+                          </li></center>
                           {% endfor %}
                           
                       </ul></center>
-                     
-                </h4>           
+
             </div>
+          {% if vacina.dose %}
+          <div class="col-md-4 img-portfolio">
+               <center><h2 > Dose</h2></center>
+                    <center><ul class="nav nav-pills">
+                        
+                      
+                          <center><li class="">
+                            
+                                  <h3  class = "alert">{{vacina.dose}} </h3>
+                                  
+                            </button></a>
+                          </li></center>
+                        
+                          
+                      </ul></center>
+
+            </div>
+            {% endif %}
+          {% if vacina.dose_qtd %}
+          <div class="col-md-4 img-portfolio">
+               <center><h2  > Quantidade da dose</h2></center>
+                    <center><ul class="nav nav-pills">
+                        
+                       
+                          <center><li class="">
+                            
+                                  <h3 class = "alert">{{vacina.dose_qtd}} </h3>
+                                  
+                            </button></a>
+                          </li></center>
+                      
+                          
+                      </ul></center>
+
+            </div>
+          {% endif %}
+          {% if vacina.via_administracao %}
+         <div class="col-md-4 img-portfolio">
+               <center><h2  > Via de Aplicação</h2></center>
+                    <center><ul class="nav nav-pills">
+                        
+                       
+                          <center><li class="">
+                            
+                                  <h3 class = "alert">{{vacina.via_administracao}} </h3>
+                                  
+                            </button></a>
+                          </li></center>
+                       
+                          
+                      </ul></center>
+
+            </div>
+            {% endif %}
+  
         </div>
-<br>
-        <br>
-        <hr>
+<hr>
         <div class="">
           <h2><p>Descrição</p></h2>
         </div>

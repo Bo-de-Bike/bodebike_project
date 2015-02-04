@@ -11,7 +11,7 @@
 body{
   background-color: white;
          color: white;
-           background: url({% static 'img/intro-bg.jpg' %}) no-repeat  right scroll;
+           background: url({% static 'img/intro-bg.jpg' %}) no-repeat  scroll;
 }
 .top-nav-collapse{
   background-color: transparent;
@@ -31,6 +31,10 @@ a{
     font-weight: 700;
     color: #B5ACAA;
 }
+#corID{
+color:rgba(0, 0, 0, 0.8);
+margin-top: 5%;
+}
 iframe{
   border: 5px solid white;
 }
@@ -45,7 +49,7 @@ iframe{
                 <div class="col-md-4 img-portfolio">
 
  
-                <h2>{{tipo_de_pesquisa}}</h2>
+                <h2 >{{tipo_de_pesquisa}}</h2>
             </div>
         </div>
 
@@ -58,8 +62,8 @@ iframe{
 
             {% for idade in idades %}
               <div class="col-md-4 img-portfolio">
-                <h2 id = "corH4">
-                    |{{idade.idade}}|
+                <h2 class ="alert" id = "corID">
+                    {{idade.idade}}
                 </h2>
               </div>
                 
@@ -93,9 +97,10 @@ iframe{
            #whiteColor{
             color: white;
            }
-           .alert{
+           .alert_t{
         width: 100%;
-        height: 90px;
+        height: 80px;
+        text-align: center;
         background-color: rgba(204, 204, 204, 0.8);
        }
        h5{
@@ -104,26 +109,34 @@ iframe{
        a{
         color:white;
        }
+      .alert{
+        width: 50%;
+        background-color: rgba(204, 204, 204, 0.6);
+       }
         </style>
         <!-- Projects Row -->
 
 
         <div class="row">
-            {% for vacina in listaVacinas %}
-            <div class="col-md-4 img-portfolio">
+                <center><ul class="nav nav-pills">
 
-                <h2>
-                    <a href="{{vacina.get_absolute_url}}">{{vacina.nome}}</a>
-                </h2>
-
-
-            </div>
-            {% endfor %}
+                        {% for vacina in listaVacinas %}
+                          
+                            
+                            <a href="{{vacina.get_absolute_url}}"><button class="pure-button">
+                                <i class="fa fa-eyedropper"></i>
+                                  <h3>{{vacina.nome|safe}}</h3>
+                                  
+                            </button></a>
+                          </li>
+                          {% endfor %}
+                          
+                      </ul></center>
 
                 <center><ul class="nav nav-pills">
 
                         {% for doenca in listaDoencas %}
-                          <li class="">
+                          
                             
                             <a href="{{doenca.get_absolute_url}}"><button class="pure-button">
                                 <i class="fa fa-eyedropper"></i>
@@ -136,17 +149,20 @@ iframe{
                       </ul></center>
     
 
+                <center><ul class="nav nav-pills">
 
-            {%for vacina in tipoVacina%}
-              <div class="col-md-4 img-portfolio">
-  
-                    <h2>
-                        <a href="{{vacina.get_absolute_url}}">{{vacina.nome}}</a>
-                    </h2>
-
-                        
-              </div>
-            {% endfor %}
+                        {% for vacina in tipoVacina %}
+                          
+                            
+                            <a href="{{vacina.get_absolute_url}}"><button class="pure-button">
+                                <i class="fa fa-eyedropper"></i>
+                                  <h3>{{vacina.nome|safe}}</h3>
+                                  
+                            </button></a>
+                          </li>
+                          {% endfor %}
+                          
+                      </ul></center>
         </div>
         <!-- /.row -->
 
@@ -193,12 +209,11 @@ iframe{
       }
      </style>
         {% verbatim %}
-         <center><h1 class="page-header" id = "n">
-                  <div class="alert"><h5>Veja as unidades mais próximas de você !</h5></div>
+        <br>
+   
+              <h2>Veja as unidades mais próximas a você !</h2>
                   
                    
-                </h1></center>
-        
         <div class="row" ng-app ng-controller="MyCtrl" >
             <!-- Map Column -->
             <div class="col-md-8" >
