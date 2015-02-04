@@ -17,5 +17,5 @@ class ContactVacinou(forms.Form):
 	    }
 	    template_name = 'contact_email.html'
 	    send_mail_template(
-	        subject, template_name, context, [settings.CONTACT_EMAIL]
+	        subject, template_name, context, [self.cleaned_data['email']]
 	    )

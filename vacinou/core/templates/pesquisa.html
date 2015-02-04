@@ -240,20 +240,22 @@ iframe{
                 <br>
                 <h3>Podemos te enviar um e-mail sobre o ponto de atendimento?</h3>
                 {% if is_valid %}
-        <p>Você enviou o formulário com sucesso</p>
+        <p>Email enviado !</p>
         {% endif %}
-        <ce<form action="#contato" class="pure-form pure-form-aligned" method="post">
+        <form action="#contato" class="pure-form pure-form-aligned" method="post">
             {% csrf_token %}
             <fieldset>
                 {% for field in form %}
                 <div class="pure-control-group">
+
                     {{ field.label_tag }}
-                    {{ field }}
+                    {{ field|attr:"style:color:black;" }}
+
                     {% if field.errors %}
                     <ul class="errorlist">
                         {% for error in field.errors %}
                         <li>{{ error }}</li>
-                        {% endfor %}
+                    {% endfor %}
                     </ul>
                     {% endif %}
                 </div>
@@ -269,8 +271,9 @@ iframe{
         </div>
 
         
-
+ <h3><a class="pure-button pure-button-active" href="{% url 'core:home' %}">Voltar</a></h3>
     </div>
+    
 
 
 {% endblock %}

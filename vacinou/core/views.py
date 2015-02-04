@@ -37,7 +37,9 @@ def home(request):
 
 		elif 'doenca' in request.POST:
 
-			context = {'tipo_de_pesquisa':("Tipo de doenca : " + request.POST['doenca'])}
+			context = {}
+
+			context['tipo_de_pesquisa'] = ("Tipo de doenca : " + request.POST['doenca'])
 
 			context['titulo'] = "Vacinas que trata :" + request.POST['doenca']
 
@@ -76,9 +78,11 @@ def home(request):
 			form.send_mail()
 			form = ContactVacinou()
 		else:
+			print (form.errors)
 			form = ContactVacinou()
 			print ('nao')
 		context['form'] = form
+
 
 		return render(request,'pesquisa.html', context)
 
