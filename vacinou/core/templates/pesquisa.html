@@ -226,7 +226,7 @@ iframe{
             <div class="col-md-4">
                 <h2>Unidades de atendimento</h2>
                 <select id="selectBox" class="pure-input-1-2" ng-model ="bairro_" >
-                    <option  ng-repeat = "unidade in unidades" value="{{unidade.localizacao}}" >{{unidade.nome_localizacao}}</option>
+                    <option  ng-repeat = "unidade in unidades" value="{{unidade.localizacao}}"  >{{unidade.nome_localizacao}}</option>
                      
                 </select>
                 
@@ -242,7 +242,7 @@ iframe{
                 {% if is_valid %}
         <p>Você enviou o formulário com sucesso</p>
         {% endif %}
-        <form action="#contato" class="pure-form pure-form-aligned" method="post">
+        <ce<form action="#contato" class="pure-form pure-form-aligned" method="post">
             {% csrf_token %}
             <fieldset>
                 {% for field in form %}

@@ -39,7 +39,7 @@ def home(request):
 
 			context = {'tipo_de_pesquisa':("Tipo de doenca : " + request.POST['doenca'])}
 
-			context['titulo'] = "Vacina que trata :"
+			context['titulo'] = "Vacinas que trata :" + request.POST['doenca']
 
 			unidades = Unidade_de_Vacinacao.objects.all().order_by('bairro')
 			context['unidades_vacinacao'] = unidades
