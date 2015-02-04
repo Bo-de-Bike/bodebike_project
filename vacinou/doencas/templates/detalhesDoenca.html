@@ -15,8 +15,10 @@
          
        }
        body{
-         background-color: white;
-         color: black;
+        background-color: white;
+         color: white;
+           background: url({% static 'img/intro-bg.jpg' %}) no-repeat  right scroll;
+
        }
        .top-nav-collapse{
          background-color: transparent;
@@ -39,7 +41,17 @@
        .texto{
           border: 1px solid gray;
        }
-
+       img{
+        border: 4px solid white;
+       }
+       #n{
+        margin-bottom: 5%;
+        margin-top: 5%;
+       }
+       .alert{
+        width: 50%;
+        background-color: rgba(204, 204, 204, 0.6);
+       }
     </style>
     <!-- Page Content -->
     <div class="container">
@@ -47,9 +59,12 @@
         <!-- Page Heading/Breadcrumbs -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">{{doenca.nome}}
+                  
+                <center><h1 class="page-header" id = "n">
+                  <div class="alert">{{doenca.nome|safe}}</div>
+                  
                    
-                </h1>
+                </h1></center>
 
             </div>
         </div>
@@ -61,7 +76,7 @@
 
               {% if tipoVacina.image %}
 
-                <img class="img-responsive img-hover" src="{{ tipoVacina.image.url }}" alt="">
+                  <img class="img-responsive img-hover" src="{{ tipoVacina.image.url }}" alt="">
 
               {% else %}
 
@@ -72,7 +87,7 @@
 
             </div>
             <div class="col-md-5">
-                      <center><div class="alert alert-info">
+                      <center><div class="">
                         <h2>Vacinas para tratamento</h2>
                       </div></center>
                 <h4 id = "corH4">
@@ -80,29 +95,41 @@
                     
                     
                       <center><ul class="nav nav-pills">
+
                         {% for vacina in tipoVacina %}
                           <li class="">
                             
+<<<<<<< HEAD
                             <button class="pure-button">
                                 <i class="fa fa-cog"></i>
                                   <a href="{{vacina.get_absolute_url}}"><h3>{{vacina.nome}}</h3>
                                   </a>
                             </button>
+=======
+                            <a href="{{vacina.get_absolute_url}}"><button class="pure-button">
+                                <i class="fa fa-eyedropper"></i>
+                                  <h3>{{vacina.nome|safe}}</h3>
+                                  
+                            </button></a>
+>>>>>>> f1bc0f607968c77b22938de24628a6fe5002d0f1
                           </li>
                           {% endfor %}
+                          
                       </ul></center>
                     
                         
 
                 </h4>
-                <div class="texto">
-                    <center><p>{{doenca.descricao|linebreaks|safe}}</p></center>
-                </div>
-                
-           
             </div>
         </div>
-
-
+        <br>
+        <br>
         <hr>
+        <div class="">
+          <h2><p>Descrição</p></h2>
+        </div>
+        <div class="texto">
+          <center><p>{{doenca.descricao}}</p></center>
+        </div>
+        <h3><a class="pure-button pure-button-active" href="{% url 'core:home' %}">Voltar</a></h3>
 {% endblock %}

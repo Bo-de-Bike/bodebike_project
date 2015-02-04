@@ -10,7 +10,8 @@
 }
 body{
   background-color: white;
-  color: black;
+         color: white;
+           background: url({% static 'img/intro-bg.jpg' %}) no-repeat  right scroll;
 }
 .top-nav-collapse{
   background-color: transparent;
@@ -30,7 +31,9 @@ a{
     font-weight: 700;
     color: #B5ACAA;
 }
-
+iframe{
+  border: 5px solid white;
+}
 </style>
     <div class="container">
 
@@ -90,7 +93,17 @@ a{
            #whiteColor{
             color: white;
            }
-
+           .alert{
+        width: 100%;
+        height: 90px;
+        background-color: rgba(204, 204, 204, 0.8);
+       }
+       h5{
+        margin-top: 15px;
+       }
+       a{
+        color:white;
+       }
         </style>
         <!-- Projects Row -->
 
@@ -107,18 +120,22 @@ a{
             </div>
             {% endfor %}
 
+                <center><ul class="nav nav-pills">
 
-
-            {% for doenca in listaDoencas %}
-            <div class="col-md-4 img-portfolio">
-
-                <h2>
-                    <a href="{{doenca.get_absolute_url}}">{{doenca.nome}}</a>
-                </h2>
+                        {% for doenca in listaDoencas %}
+                          <li class="">
+                            
+                            <a href="{{doenca.get_absolute_url}}"><button class="pure-button">
+                                <i class="fa fa-eyedropper"></i>
+                                  <h3>{{doenca.nome|safe}}</h3>
+                                  
+                            </button></a>
+                          </li>
+                          {% endfor %}
+                          
+                      </ul></center>
     
 
-            </div>
-            {% endfor %}
 
             {%for vacina in tipoVacina%}
               <div class="col-md-4 img-portfolio">
@@ -176,7 +193,12 @@ a{
       }
      </style>
         {% verbatim %}
-        <h2>Veja as unidades mais próximas de você !</h2>
+         <center><h1 class="page-header" id = "n">
+                  <div class="alert"><h5>Veja as unidades mais próximas de você !</h5></div>
+                  
+                   
+                </h1></center>
+        
         <div class="row" ng-app ng-controller="MyCtrl" >
             <!-- Map Column -->
             <div class="col-md-8" >
